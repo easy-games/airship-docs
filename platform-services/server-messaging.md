@@ -47,7 +47,7 @@ Server Messaging is useful for coordinating game state and events across multipl
 Subscribes to a topic, allowing you to receive messages published to that topic.
 
 ```typescript
-Platform.Server.Messaging.Subscribe<T>(topic: string, callback: (data: T) => void): { unsubscribe: () => void, destroy: () => void }
+Platform.Server.Messaging.Subscribe<T>(topic: string, callback: (data: T) => void): { unsubscribe: () => void }
 ```
 
 **Parameters:**
@@ -55,7 +55,7 @@ Platform.Server.Messaging.Subscribe<T>(topic: string, callback: (data: T) => voi
 * `callback` - Function called when a message is received on the subscribed topic
 
 **Returns:**
-* An object with an `unsubscribe` function to stop receiving messages. This object can also be passed to a `Bin` for automatic cleanup, as it also contains a `destroy` method.
+* An object with an `unsubscribe` function to stop receiving messages. This object can also be passed to a `Bin` for automatic cleanup.
 
 ### Publish
 
@@ -152,6 +152,7 @@ interface PlayerStatusUpdate {
 
 export class PlayerTracker extends AirshipBehaviour {
     private playerSubscription: { unsubscribe: () => void } | undefined;
+    private playerJoinedConnection: { disconnect: () => void } | undefined;
     
     override Start(): void {
         if (!Game.IsServer()) return;
@@ -162,14 +163,14 @@ export class PlayerTracker extends AirshipBehaviour {
         });
         
         // Notify when players join this server
-        this.bin.Add(Airship.Players.onPlayerJoined.Connect((player) => {
+        this.playerJoinedConnection = Airship.Players.onPlayerJoined.Connect((player) => {
             Platform.Server.Messaging.Publish("player-status", {
                 userId: player.userId,
                 action: "joined",
                 serverId: Game.serverId,
                 timestamp: os.time()
             } as PlayerStatusUpdate);
-        }));
+        });
     }
     
     private UpdatePlayerStatus(update: PlayerStatusUpdate): void {
@@ -178,8 +179,9 @@ export class PlayerTracker extends AirshipBehaviour {
     }
     
     override OnDestroy(): void {
-        // Clean up subscription
+        // Clean up subscription and connection
         this.playerSubscription?.unsubscribe();
+        this.playerJoinedConnection?.disconnect();
     }
 }
 ```

@@ -26,6 +26,10 @@ Platform.Server.Messaging.Publish("player-events", {
 
 // Unsubscribe when no longer needed
 subscription.unsubscribe();
+
+// Alternatively, if you are using a Bin to manage resources,
+// the subscription can be added directly to it.
+// this.bin.Add(subscription);
 ```
 
 ## Use Cases
@@ -43,7 +47,7 @@ Server Messaging is useful for coordinating game state and events across multipl
 Subscribes to a topic, allowing you to receive messages published to that topic.
 
 ```typescript
-Platform.Server.Messaging.Subscribe<T>(topic: string, callback: (data: T) => void): { unsubscribe: () => void }
+Platform.Server.Messaging.Subscribe<T>(topic: string, callback: (data: T) => void): { unsubscribe: () => void, destroy: () => void }
 ```
 
 **Parameters:**
@@ -51,7 +55,7 @@ Platform.Server.Messaging.Subscribe<T>(topic: string, callback: (data: T) => voi
 * `callback` - Function called when a message is received on the subscribed topic
 
 **Returns:**
-* An object with an `unsubscribe` function to stop receiving messages
+* An object with an `unsubscribe` function to stop receiving messages. This object can also be passed to a `Bin` for automatic cleanup, as it also contains a `destroy` method.
 
 ### Publish
 
@@ -99,13 +103,19 @@ interface ServerMaintenanceEvent {
 type GlobalEvent = WorldBossSpawnedEvent | ServerMaintenanceEvent;
 
 export class GlobalEventManager extends AirshipBehaviour {
+    private bin = new Bin();
+
     override Start(): void {
         if (!Game.IsServer()) return;
 
         // Subscribe to global events
-        Platform.Server.Messaging.Subscribe("global-events", (event: GlobalEvent) => {
+        this.bin.Add(Platform.Server.Messaging.Subscribe("global-events", (event: GlobalEvent) => {
             this.HandleGlobalEvent(event);
-        });
+        }));
+    }
+
+    override OnDestroy(): void {
+        this.bin.Clean();
     }
 
     private HandleGlobalEvent(event: GlobalEvent): void {
@@ -152,14 +162,14 @@ export class PlayerTracker extends AirshipBehaviour {
         });
         
         // Notify when players join this server
-        Airship.Players.onPlayerJoined.Connect((player) => {
+        this.bin.Add(Airship.Players.onPlayerJoined.Connect((player) => {
             Platform.Server.Messaging.Publish("player-status", {
                 userId: player.userId,
                 action: "joined",
                 serverId: Game.serverId,
                 timestamp: os.time()
             } as PlayerStatusUpdate);
-        });
+        }));
     }
     
     private UpdatePlayerStatus(update: PlayerStatusUpdate): void {
@@ -202,7 +212,7 @@ export class ServerStatusReporter extends AirshipBehaviour {
 
 ## Best Practices
 
-* **Unsubscribe when done** - Always call `unsubscribe()` when you no longer need to receive messages to prevent memory leaks
+* **Unsubscribe when done** - Always used a `Bin` or call `unsubscribe()` when you no longer need to receive messages to prevent memory leaks.
 * **Use descriptive topic names** - Choose clear, consistent naming conventions for your topics
 * **Handle errors gracefully** - Check the `success` flag when publishing and handle failures appropriately
 * **Keep messages small** - Avoid sending large data objects; consider using references to shared data stored in the [Data Store](data-store/README.md) or [Cache Store](cache-store.md)

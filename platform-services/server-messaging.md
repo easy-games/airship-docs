@@ -51,10 +51,12 @@ Platform.Server.Messaging.Subscribe<T>(topic: string, callback: (data: T) => voi
 ```
 
 **Parameters:**
+
 * `topic` - The topic name to subscribe to (alphanumeric characters, underscores, and hyphens only)
 * `callback` - Function called when a message is received on the subscribed topic
 
 **Returns:**
+
 * An object with an `unsubscribe` function to stop receiving messages. This object can also be passed to a `Bin` for automatic cleanup.
 
 ### Publish
@@ -66,11 +68,13 @@ Platform.Server.Messaging.Publish(topic: string, data: unknown): Promise<{ succe
 ```
 
 **Parameters:**
+
 * `topic` - The topic name to publish to (alphanumeric characters, underscores, and hyphens only)
 * `data` - The data to be sent (will be JSON serialized)
 
 **Returns:**
-* A Promise that resolves to an object with a `success` boolean, set to true if publishing was successful, false if not. You can retry failed messages later or drop them 
+
+* A Promise that resolves to an object with a `success` boolean, set to true if publishing was successful, false if not. You can retry failed messages later or drop them
 
 {% hint style="info" %}
 Server Messaging is designed for real-time communication between servers. Sometimes messages may not be delivered, for example if there are network issues . Always check the `success` flag when publishing messages and handle failures appropriately.
@@ -79,6 +83,7 @@ Server Messaging is designed for real-time communication between servers. Someti
 ## Topic Names
 
 Topic names must follow these rules:
+
 * Only alphanumeric characters, underscores (`_`), and hyphens (`-`) are allowed
 * Topic names are case-sensitive
 * Examples: `player-events`, `global_announcements`, `server123_status`
@@ -214,10 +219,10 @@ export class ServerStatusReporter extends AirshipBehaviour {
 
 ## Best Practices
 
-* **Unsubscribe when done** - Always used a `Bin` or call `unsubscribe()` when you no longer need to receive messages to prevent memory leaks.
+* **Unsubscribe when done** - Always use a `Bin` or call `unsubscribe()` when you no longer need to receive messages to prevent memory leaks.
 * **Use descriptive topic names** - Choose clear, consistent naming conventions for your topics
 * **Handle errors gracefully** - Check the `success` flag when publishing and handle failures appropriately
-* **Keep messages small** - Avoid sending large data objects; consider using references to shared data stored in the [Data Store](data-store/README.md) or [Cache Store](cache-store.md)
+* **Keep messages small** - Avoid sending large data objects; consider using references to shared data stored in the [Data Store](data-store/) or [Cache Store](cache-store.md)
 * **Avoid message loops** - Be careful not to create infinite loops where servers keep responding to each other's messages
 
 ## Limitations

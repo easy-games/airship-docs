@@ -109,6 +109,7 @@
 * [Server Management](platform-services/server-management.md)
 * [Server List](platform-services/server-list.md)
 * [Server Transfers](platform-services/server-transfers.md)
+* [Server Messaging](platform-services/server-messaging.md)
 * [Users](platform-services/users.md)
 * [Parties](platform-services/parties.md)
 * [Matchmaking](platform-services/matchmaking.md)

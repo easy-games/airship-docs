@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # AirshipNetworkBehaviour
 
 {% hint style="danger" %}

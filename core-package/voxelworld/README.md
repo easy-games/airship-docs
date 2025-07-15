@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # VoxelWorld
 
 VoxelWorld is our system for creating grid aligned elements. These are usually blocks like in Minecraft or Terraria but can contain special elements such as prefabs or quarterblocks.&#x20;

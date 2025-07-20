@@ -6,6 +6,10 @@ Airship provides tools for creating and managing instances of game servers throu
 
 You can create a server by calling `CreateServer()`. You can provide additional parameters to this function to define things like the starting scene, the access mode, and other custom configuration.
 
+{% hint style="info" %}
+More information on creating servers is available on the [Server Transfers](server-transfers.md) page.
+{% endhint %}
+
 ## Shutting Down Servers
 
 Game servers with no players are automatically shut down after a few minutes, so you don't need to explicitly shut down a game server. If you do want to shut down a game server, you can use the `ShutdownServer()` function.

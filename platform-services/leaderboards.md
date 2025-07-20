@@ -1,6 +1,6 @@
 # Leaderboards
 
-The Leaderboard API can be accessed using `Platform.server.leaderboard`.
+The Leaderboard API can be accessed using `Platform.Server.Leaderboard`.
 
 * Leaderboards are durable. Data will not be cleaned up or deleted.
 * The Leaderboard API can only be used on the server.
@@ -19,7 +19,7 @@ If you are tracking player stats with leaderboards, it's often best to use the p
 
 ```typescript
 // Update a leaderboard
-await Platform.server.leaderboard.Update("TopScores", {
+await Platform.Server.Leaderboard.Update("TopScores", {
     [player1.userId]: 123,
     [player2.userId]: 234,
 })
@@ -27,16 +27,11 @@ await Platform.server.leaderboard.Update("TopScores", {
 
 ```typescript
 // Get top scores for a leaderboard in realtime
-const result = await Platform.server.leaderboard.GetRankRange("TopScores");
-if (!result.success) return;
-
 // Contains an array of objects with the id, rank, and value
-const entries = result.data;
+const entries = await Platform.Server.Leaderboard.GetRankRange("TopScores");
 
 // Get the usernames to display
-const userResult = await Platform.server.user.GetUsersById(entries.map(e => e.id));
-if (!userResult.success) return;
-const idMap = userResult.data;
+const idMap = await Platform.Server.User.GetUsersById(entries.map(e => e.id));
 
 // Array of objects containing userData, rank, and scoreValue.
 const entriesWithUserdata = entries.map((entry) => {
@@ -50,9 +45,9 @@ const entriesWithUserdata = entries.map((entry) => {
 
 ```typescript
 // Get the rank of a given id (note: results may be delayed up to 1 minute)
-const result = await Platform.server.leaderboard.GetRank("TopScores", player.userId);
-if (!result.success) return;
+const result = await Platform.Server.Leaderboard.GetRank("TopScores", player.userId);
+if (!result) return; // No entry for this userId
 
-// Contains an object with the id, rank, and value
-const entry = result.data;
+// Result is an object with the fields id, rank, and value
+const rank = result.rank;
 ```

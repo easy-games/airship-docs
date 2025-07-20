@@ -35,10 +35,10 @@ await Platform.Server.DataStore.SetKey(`Unlocks:${player.userId}`, unlocks);
 const result = await Platform.Server.DataStore.GetKey<UnlockData>(
     `Unlocks:${player.userId}`,
 );
-if (!result.success) return;
+if (!result) return; // Key did not exist
 
 // Check if user has unlocked level2
-if (result.data.level2) {
+if (result.level2) {
     // Unlocked!
 }
 ```

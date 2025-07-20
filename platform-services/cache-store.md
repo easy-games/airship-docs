@@ -1,6 +1,6 @@
 # Cache Store
 
-The Cache Store provides simple key/value cache storage. The Cache Store API can be accessed using `Platform.server.cacheStore`.
+The Cache Store provides simple key/value cache storage. The Cache Store API can be accessed using `Platform.Server.CacheStore`.
 
 * Cache Store is not durable. Data will be cleaned up if not used.
 * The Cache Store API can only be used on the server.
@@ -19,17 +19,15 @@ Cache Store is intended to be used for short-lived, non-durable key/value storag
 
 ```typescript
 // Create a queue cooldown
-await Platform.server.cacheStore.SetKey(
+await Platform.Server.CacheStore.SetKey(
     `BossQueue:${player.userId}`, // The key for this cache entry
     os.time(), // The time the cooldown was created is stored as the value
     60, // 60 second cooldown
 );
 
 // Check a queue cooldown
-const result = await Platform.server.cacheStore.GetKey(`BossQueue:${player.userId}`);
-if (!result.success) return;
-
-if (result.value) {
+const result = await Platform.server.cacheStore.GetKey<number>(`BossQueue:${player.userId}`);
+if (result) {
     // On cooldown
 } else {
     // Not on cooldown

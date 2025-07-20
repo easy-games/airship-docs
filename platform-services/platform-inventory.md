@@ -1,6 +1,6 @@
 # Platform Inventory
 
-Platform Inventory is an inventory system much like the Steam Inventory system. Items in this inventory are accessible outside of your game, and in the future will be tradable and marketable. Platform inventory can be accessed using `Platform.client.platformInventory` on the client and `Platform.server.platformInventory` on the server.
+Platform Inventory is an inventory system much like the Steam Inventory system. Items in this inventory are accessible outside of your game, and in the future will be tradable and marketable. Platform inventory can be accessed using `Platform.Client.Inventory` on the client and `Platform.Server.Inventory` on the server.
 
 * Platform inventory is persistent and will not be cleaned up or deleted.
 * Items in this inventory do not stack. Each item has it's own unique instance ID.

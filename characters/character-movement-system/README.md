@@ -15,7 +15,7 @@ When spawning in a default Character you get the benefit of several different mo
 * **Flying** - A no gravity mode for vertical movement (useful in debugging levels)
 * **Step Ups** - Automatically step up to higher colliders smoothly
 * **Slopes** - Control how fast slopes pull you down and what slopes you can move and jump on
-* **Knockback** - Easily add forces to the character
+* **Impulse** - Easily add forces to the character
 
 The system is built with a Rigidbody and Box Collider. You can apply forces or directly override the velocity to add custom movement mechanics.
 

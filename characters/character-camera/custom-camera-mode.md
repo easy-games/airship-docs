@@ -1,10 +1,8 @@
-# Camera Structure
+# Custom Camera Mode
 
 The camera functionality has been created in such a way to be agnostic to the game it is in. The top-level class for the camera is the `CameraSystem`. Only one instance of this class should be created, and a Unity `Camera` component must be passed to its constructor.
 
-A good practice is to create a `CameraController` that constructs the `CameraSystem` and exposes it to the game.
-
-The whole camera system is written in TypeScript. There is no interface into this system from the C# side of the project.
+The whole camera system is written in TypeScript.
 
 ## CameraMode
 
@@ -81,9 +79,6 @@ If the CameraSystem is exposed through a CameraController, then the full code mi
 
 ```typescript
 cameraController.cameraSystem.SetMode(new MyCameraMode());
-
-// If proxy methods are written on the controller, then perhaps:
-cameraController.SetMode(new MyCameraMode());
 ```
 
 ### Stopping a CameraMode

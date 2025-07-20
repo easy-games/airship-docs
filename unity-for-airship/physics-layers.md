@@ -12,11 +12,12 @@ You may also change the Physics Matrix for these layers. Read more about the  [P
 
 In Typescript you can use the layers via their name or index.  You can easily get their index with the GameLayer static Enum.
 
-<pre class="language-typescript"><code class="lang-typescript"><strong>// Create a mask from layer names
-</strong><strong>const layerMask = LayerMask.GetMask("GameLayer0", "GameLayer1");
-</strong><strong>
-</strong><strong>// Check if an object is a game layer
-</strong>if (this.gameObject.layer === GameLayer.GAMELAYER_0) {
+```typescript
+// Create a mask from layer names
+const layerMask = LayerMask.GetMask("GameLayer0", "GameLayer1");
+
+// Check if an object is a game layer
+if (this.gameObject.layer === GameLayer.GAMELAYER_0) {
 
 	//Raycast with a game layer mask
 	if (Physics.Raycast(this.transform.position, this.transform.forward, 10, layerMask)) {
@@ -24,7 +25,7 @@ In Typescript you can use the layers via their name or index.  You can easily ge
 	}
 	
 }
-</code></pre>
+```
 
 {% hint style="info" %}
 You can revert core layers you have renamed by using the menu button&#x20;

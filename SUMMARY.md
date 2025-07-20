@@ -121,8 +121,7 @@
 ## Other
 
 * [FAQ](other/faq.md)
-* [Project Status](other/project-status.md)
-* [Javascript -> Luau](other/javascript-greater-than-luau.md)
+* [JavaScript -> Luau](other/javascript-greater-than-luau.md)
 
 ## Guides
 

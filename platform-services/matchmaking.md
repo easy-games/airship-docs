@@ -17,9 +17,9 @@ After creating a matchmaking queue in the Create Airship console:
 ```typescript
 // Server
 // Create a matchmaking group with various users
-const [success, createGroupResult] = Platform.Server.Matchmaking.CreateGroup(
+const createGroupResult = await Platform.Server.Matchmaking.CreateGroup(
     userIds,
-).await();
+);
 const groupId = createGroupResult.groupId;
 ```
 
@@ -27,15 +27,15 @@ const groupId = createGroupResult.groupId;
 // Join a preconfigured matchmaking queue
 // This begins the matchmaking process for this group
 // Configure your matchmaking queue's on create.airship.gg
-Platform.Server.Matchmaking.JoinQueue({
+await Platform.Server.Matchmaking.JoinQueue({
     groupId: groupId,
     queueId: "team-deathmatch", 
-}).await();
+});
 ```
 
 ```typescript
 // Leave a matchmaking queue
-Platform.Server.Matchmaking.LeaveQueue(this.matchmakerSingleton.groupId).await();
+await Platform.Server.Matchmaking.LeaveQueue(this.matchmakerSingleton.groupId);
 ```
 
 ```typescript
@@ -45,7 +45,7 @@ Platform.Server.Matchmaking.LeaveQueue(this.matchmakerSingleton.groupId).await()
 // the queue.
 // To start matchmaking again, the server will need to call
 // `Platform.Server.Matchmaking.JoinQueue`
-const [success, result] = Platform.Client.Matchmaking.LeaveQueue().await();
+const result = await Platform.Client.Matchmaking.LeaveQueue();
 ```
 
 ```typescript
@@ -54,15 +54,15 @@ const [success, result] = Platform.Client.Matchmaking.LeaveQueue().await();
 // Server
 
 // Get matchmaking group + status
-const [success, group] = Platform.Server.Matchmaking.GetGroupById(
+const group = await Platform.Server.Matchmaking.GetGroupById(
     this.matchmakerSingleton.groupId,
-).await();
+);
 
 // Get the matchmaking group + status for a specific user
 // This is useful if you don't have the group id, check if they are in a group
-const [success, group] = Platform.Server.Matchmaking.GetGroupByUserId(
+const group = await Platform.Server.Matchmaking.GetGroupByUserId(
     player.userId,
-).await();
+);
 
 // On a server that was started by the matchmaking service, you can get
 // the match configuration, which includes the teams, groups, players, and
@@ -72,13 +72,13 @@ const matchConfig = await Platform.Server.Matchmaking.GetMatchConfig();
 // Client
 
 // On the player, check to see if the player is a part of a matchmaking group
-const [success, group] = Platform.Client.Matchmaking.GetCurrentGroup().await();
+const group = await Platform.Client.Matchmaking.GetCurrentGroup();
 
 // Run code when the local player's group changes. 
 Platform.Client.Matchmaking.onGroupChange.Connect((group) => {
     // This code runs when the local players group changes.
     // The "group" parameter will contain the new group data.
-    print(group.status)
+    print(group.status);
 })
 ```
 
@@ -152,13 +152,13 @@ Platform.Server.Matchmaking.JoinQueue({
 const numPlayers = users.length; // Assuming users already exist
 const totalSkill = users.reduce((user, acc) => user.skill + acc, 0);
 const avgSkill = totalSkill / numPlayers;
-Platform.Server.Matchmaking.JoinQueue({
+await Platform.Server.Matchmaking.JoinQueue({
     groupId: groupId,
     queueId: "my-skill-based-queue",
     attributes: {
         "skill": avg_skill
     }
-}).await();
+});
 ```
 
 ### Match Set Rule
@@ -172,13 +172,13 @@ Compares sets of values looking for a minimum number of similarities. Useful for
 Assuming a MatchSetRule with attribute set to "favoriteMaps" and difference set to 1.
 
 ```typescript
-Platform.Server.Matchmaking.JoinQueue({
+await Platform.Server.Matchmaking.JoinQueue({
     groupId: groupId,
     queueId: "my-favorite-map-queue",
     attributes: {
         "favoriteMaps": ["dust2", "rust", "strike-at-karkand"]
     }
-}).await();
+});
 ```
 
 ### String Equality
@@ -193,13 +193,13 @@ With scope = team, this is useful for clan based matchmaking, location vs. locat
 Assuming a StringEquality rule with attribute set to "clan", scope set to "team" and other teams should be different set to true:
 
 ```typescript
-Platform.Server.Matchmaking.JoinQueue({
+await Platform.Server.Matchmaking.JoinQueue({
     groupId: groupId,
     queueId: "clan-4v4",
     attributes: {
         "clan": "fightingFrogs"
     }
-}).await();
+});
 ```
 
 ### Team Fixed Roles
@@ -213,7 +213,7 @@ Requires each player on a team be assigned a role. Useful in role based game mod
 Assuming a TeamFixedRoles Rule with Attribute set to "role", match roles set to dps: 1, healer: 1, and `Automatically Assign Roles` checked.
 
 ```typescript
-Platform.Server.Matchmaking.JoinQueue({
+await Platform.Server.Matchmaking.JoinQueue({
     groupId: groupId,
     queueId: "clan-4v4",
     members: [
@@ -224,7 +224,7 @@ Platform.Server.Matchmaking.JoinQueue({
             },
         }
     ]
-}).await();
+});
 ```
 
 ### Team Size Balance

@@ -235,9 +235,11 @@ Used to limit the difference between team sizes in a match. Since teams can have
 
 No attributes are specified at a group / player level for this rule.&#x20;
 
-### Region Latency (Coming Soon)
+### Region Priority
 
+Prioritizes low latency matches by matchmaking groups in their lowest latency regions first. Region priority sorts the latency to each region for a group into a list with the lowest latency first. It will start matchmaking the group in only the first region and will add the next region every time "Wait Per Region" elapses.  Groups will still prioritize the lower latency regions first even if they begin matchmaking in multiple regions.
 
+<table><thead><tr><th width="224">Field</th><th>Description</th></tr></thead><tbody><tr><td><strong>Wait Per Region</strong></td><td>The amount of time in seconds to wait before adding an additional matchmaking region.</td></tr><tr><td><strong>Seconds Until Optional</strong></td><td>The amount of time in seconds until this rule no longer applies. Use this to loosen rule restrictions.</td></tr></tbody></table>
 
 ```typescript
 ```

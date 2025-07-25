@@ -5,13 +5,16 @@ description: >-
 ---
 
 # Inventory
+{% hint style="info" %}
+When referencing assets by path they should be under `Assets/Resources` folder (or part of a package under `Assets/AirshipPackages`). This ensures they will be included in your deploy.
+{% endhint %}
 
 ```typescript
 // Register a new item type
 Airship.Inventory.RegisterItem("WoodSword", {
     displayName: "Wood Sword",
-    accessoryPaths: ["Assets/WoodSword.prefab"],
-    image: "Assets/WoodSword.png",
+    accessoryPaths: ["Assets/Resources/WoodSword.prefab"],
+    image: "Assets/Resources/WoodSword.png",
 });
 ```
 

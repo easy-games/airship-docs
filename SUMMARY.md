@@ -95,7 +95,7 @@
 
 ## CHARACTERS
 
-* [Custom Character](characters/customize.md)
+* [Custom Character](characters/quick-configuration.md)
 * [Character Movement System](characters/character-movement-system/README.md)
   * [Character Movement Data](characters/character-movement-system/character-movement-data.md)
   * [Character Movement Events](characters/character-movement-system/character-movement-events.md)

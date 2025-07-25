@@ -1,5 +1,5 @@
 ---
-description: Quickly get a custom character working in your scene.
+description: Quickly get a custom character prefab working in your scene.
 ---
 
 # Custom Character

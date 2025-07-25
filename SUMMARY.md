@@ -106,6 +106,7 @@
 * [Character Animations](characters/character-animations/README.md)
   * [Character Blender Animations](characters/character-animations/character-blender-animations.md)
   * [Character Ragdoll](characters/character-animations/character-ragdoll.md)
+* [First Person Viewmodel](characters/first-person-viewmodel.md)
 
 ## Accessories
 

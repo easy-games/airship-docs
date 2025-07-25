@@ -1,7 +1,9 @@
 # Publish Game
 
+
+
 {% hint style="warning" %}
-You have to sign in with Google for publishing. We will support other methods soon.
+Simplified publishing only works when signed in with Google. If you don't sign in with Google you can [publish using an API key](https://app.gitbook.com/o/Ob5dDteJHkKChzdNkVaS/s/IbaXflSJA8L9N9yOx089/~/changes/322/other/publishing-with-key).
 {% endhint %}
 
 ### Create game

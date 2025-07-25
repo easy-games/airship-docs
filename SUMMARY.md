@@ -120,6 +120,7 @@
 
 ## Other
 
+* [Publishing with API Key](other/publishing-with-api-key.md)
 * [FAQ](other/faq.md)
 * [JavaScript -> Luau](other/javascript-greater-than-luau.md)
 

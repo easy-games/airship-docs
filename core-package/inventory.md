@@ -5,13 +5,14 @@ description: >-
 ---
 
 # Inventory
+Item assets must be under `Assets/Resources` or `Assets/AirshipPackages`.
 
 ```typescript
 // Register a new item type
 Airship.Inventory.RegisterItem("WoodSword", {
     displayName: "Wood Sword",
-    accessoryPaths: ["Assets/WoodSword.prefab"],
-    image: "Assets/WoodSword.png",
+    accessoryPaths: ["Assets/Resources/WoodSword.prefab"],
+    image: "Assets/Resources/WoodSword.png",
 });
 ```
 

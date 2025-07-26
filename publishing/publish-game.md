@@ -16,6 +16,18 @@ First you will need to register your game:
 
 ### Publish game
 
+{% hint style="warning" %}
+Before Publishing, make sure you have **Mac Build Support** installed.
+
+To do this:
+1. Save and close your Unity project
+2. Open the **Installations** tab in the Unity Hub
+3. Select the **Add Modules** option
+4. Check **Mac Build Support (Mono)** and hit install
+
+This process is required to upload your first game to Airship Servers.
+{% endhint %}
+
 Once you have created a game you can publish to it from the Unity Editor:
 
 1.  At the top of your editor click the profile picture and sign in\

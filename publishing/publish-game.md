@@ -15,7 +15,7 @@ First you will need to register your game:
 ### Publish game
 
 {% hint style="warning" %}
-**Before you publish for the first time, make you you have done the following steps:**
+**Before you publish for the first time, make sure you have done the following steps:**
 
 1. Open Unity Hub and select the Installations tab
 2. Press Manage on the installation you have been using for Airship

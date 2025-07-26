@@ -1,7 +1,5 @@
 # Publish Game
 
-
-
 {% hint style="warning" %}
 Simplified publishing only works when signed in with Google. If you don't sign in with Google you can [publish using an API key](https://app.gitbook.com/o/Ob5dDteJHkKChzdNkVaS/s/IbaXflSJA8L9N9yOx089/~/changes/322/other/publishing-with-key).
 {% endhint %}
@@ -17,25 +15,24 @@ First you will need to register your game:
 ### Publish game
 
 {% hint style="warning" %}
-Before Publishing, make sure you have **Mac Build Support** installed.
+**Before you publish for the first time, make you you have done the following steps:**
 
-To do this:
-1. Save and close your Unity project
-2. Open the **Installations** tab in the Unity Hub
-3. Select the **Add Modules** option
-4. Check **Mac Build Support (Mono)** and hit install
+1. Open Unity Hub and select the Installations tab
+2. Press Manage on the installation you have been using for Airship
+3. Click on Add Modules and select **Mac Build Support (Mono)**
+4. Install the module, restart Unity Editor, and Publish your game!
 
-This process is required to upload your first game to Airship Servers.
+This process is essential to publishing your game to all platforms.
 {% endhint %}
 
 Once you have created a game you can publish to it from the Unity Editor:
 
 1.  At the top of your editor click the profile picture and sign in\
-    &#x20;
+
 
     <figure><img src="../.gitbook/assets/Screenshot 2024-09-13 at 5.21.11 PM.png" alt="" width="375"><figcaption></figcaption></figure>
 2.  Once you are signed in click the settings button\
-    &#x20;
+
 
     <figure><img src="../.gitbook/assets/Screenshot 2024-09-13 at 5.26.58 PM.png" alt=""><figcaption></figcaption></figure>
 3. Open the Publish Target dropdown and select your game

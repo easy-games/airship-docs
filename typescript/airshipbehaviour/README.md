@@ -2,7 +2,7 @@
 
 Most game logic is run through AirshipBehaviours. It is our equivalent to [Unity's MonoBehaviour](https://docs.unity3d.com/Manual/class-MonoBehaviour.html).
 
-AirshipBehaviours offer useful lifecycle methods. They are attached to [Game Objects](https://docs.unity3d.com/Manual/class-GameObject.html).&#x20;
+AirshipBehaviours offer [useful lifecycle methods](lifecycles.md). They are attached to [Game Objects](https://docs.unity3d.com/Manual/class-GameObject.html).&#x20;
 
 {% code fullWidth="false" %}
 ```typescript

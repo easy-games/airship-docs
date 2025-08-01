@@ -92,6 +92,7 @@
 
 * [Import a Package](packages/import-a-package.md)
 * [Creating a Package](packages/creating-a-package.md)
+* [Editing a Package](packages/editing-a-package.md)
 * [Common Packages](packages/common-packages.md)
 
 ## CHARACTERS

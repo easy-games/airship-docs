@@ -1,5 +1,5 @@
 ---
-description: Quick toggleing of ragdoll physics for characters
+description: Quick toggling of ragdoll physics for characters
 ---
 
 # Character Ragdoll

@@ -14,7 +14,7 @@ We use [Blender 3.5](https://download.blender.org/release/Blender3.5/) internall
 
 ## Creating Animations With Blender
 
-![](<../../.gitbook/assets/image (1).png>)
+![](<../../.gitbook/assets/image (1) (1).png>)
 
 You can create multiple animations in 1 blender file
 
@@ -23,7 +23,7 @@ You can create multiple animations in 1 blender file
 * Create a new Action
 * Each action will export as an individual Animation Clip for Unity
 
-<div align="left"><figure><img src="../../.gitbook/assets/image (2).png" alt="" width="375"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/image (2) (2).png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 ### Exporting to FBX
 
@@ -39,25 +39,23 @@ You can save your settings a preset for quick setup next time.
 Click the + icon on the top right of the export window.
 {% endhint %}
 
-<div align="left"><figure><img src="../../.gitbook/assets/image (3).png" alt="" width="379"><figcaption></figcaption></figure></div>
-
-
+<div align="left"><figure><img src="../../.gitbook/assets/image (3) (1).png" alt="" width="379"><figcaption></figcaption></figure></div>
 
 ### Importing to Unity
 
-Place the FBX into a folder in your project or drag it into the Project window of Unity.&#x20;
+Place the FBX into a folder in your project or drag it into the Project window of Unity.
 
 Set the rig type to Generic and assign the character avatar
 
-<div align="left"><figure><img src="../../.gitbook/assets/image (5).png" alt="" width="563"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/image (5) (2).png" alt="" width="563"><figcaption></figcaption></figure></div>
 
 You should see each Action you made as an Animation Clip in the Animation tab of your file
 
-<div align="left"><figure><img src="../../.gitbook/assets/image (4).png" alt="" width="563"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/image (4) (2).png" alt="" width="563"><figcaption></figcaption></figure></div>
 
-Your animation clips can now be used as variables in AirshipComponents or directly in an Animator state machine.&#x20;
+Your animation clips can now be used as variables in AirshipComponents or directly in an Animator state machine.
 
-<div align="left"><figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure></div>
 
 ```typescript
 import Character from "@Easy/Core/Shared/Character/Character";
@@ -76,4 +74,4 @@ export default class AnimTest extends AirshipBehaviour {
 }
 ```
 
-<div align="left"><figure><img src="../../.gitbook/assets/image (7).png" alt="" width="375"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/image (7) (1).png" alt="" width="375"><figcaption></figcaption></figure></div>

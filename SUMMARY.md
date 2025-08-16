@@ -104,7 +104,7 @@
 
 * [Custom Character](characters/quick-configuration.md)
 * [Character Movement System](characters/character-movement-system/README.md)
-  * [Character Movement Data](characters/character-movement-system/character-movement-data.md)
+  * [Character Movement Settings](characters/character-movement-system/character-movement-data.md)
   * [Character Movement Events](characters/character-movement-system/character-movement-events.md)
   * [Character Movement Networking](characters/character-movement-system/character-movement-networking/README.md)
     * [Server Authoritative Movement](characters/character-movement-system/character-movement-networking/server-authoritative-movement.md)

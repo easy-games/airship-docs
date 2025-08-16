@@ -1,159 +1,175 @@
 ---
-description: Details on the exposed variables on CharacterMovementData
+description: Details on the CharacterMovementSettings component
 ---
 
-# Character Movement Data
+# Character Movement Settings
 
-### Size
+{% hint style="info" %}
+You must create a [Character Variant](../quick-configuration.md) for changes to be applied.
+{% endhint %}
+
+### Collider Size
 
 Control the Box Collider of the character
 
-<div align="left"><figure><img src="../../.gitbook/assets/image (80).png" alt="" width="375"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure></div>
 
-**Height**  - controls the height of the bounding box
+**Character Height -** Vertical size of the character hitbox.
 
-**Radius** - is the width and depth of the bounding box.
+**Character Radius -** Half of the character hitbox width.
 
+**Collider Ground Offset -** The height at which the character hitbox should be off the ground.
 
+***
 
 ### Movement
 
-core variables for moving the character
+Core variables for moving the character
 
-<div align="left"><figure><img src="../../.gitbook/assets/image (81).png" alt="" width="375"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure></div>
 
-**Use Acceleration Movement** - Toggle between Instant Motion and Acceleration Motion. Instant Motion drives the character instantly to the target speed. Acceleration Motion will move the character with a force over time.&#x20;
+**Only Sprint Forward** - If checked, players will only be able to sprint if their velocity is moving forward.
 
-**Speed** - Desired speed to move while the character is jogging. Will instantly move to this in Instant Motion mode or stop the acceleration when it reaches this speed. In meters per second
+**Use Acceleration Movement** - Toggle between Instant Motion and Acceleration Motion. Instant Motion drives the character instantly to the target speed. Acceleration Motion will move the character with a force over time.
+
+**Speed** - Desired speed to move while the character is jogging. Will instantly move to this in Instant Motion mode or stop the acceleration when it reaches this speed. Measured in meters per second.
 
 **Sprint Speed** - Same as speed but while sprinting.
 
-**Acceleration Force** - How fast to accelerate while in Acceleration Mode. Also controls acceleration when your character is moving faster than the target speed (ie. being flung into the air by a spring). In meters per second
+**Acceleration Force** - How fast to accelerate while in Acceleration Mode. Also controls acceleration when your character is moving faster than the target speed (ie. being flung into the air by a spring). In meters per second.
 
-**Sprint Acceleration Force** - same as Acceleration Force but while sprinting
+**Sprint Acceleration Force** - same as Acceleration Force but while sprinting.
 
-**Min Acceleration Delta** - When moving faster than your target speed, your acceleration will be dampened if you try to acceleration in the direction you are moving. This value is a normalized minimum amount that you can move in a direction you are already moving.&#x20;
+**Min Acceleration Delta** - When moving faster than your target speed, your acceleration will be dampened if you try to acceleration in the direction you are moving. This value is a normalized minimum amount that you can move in a direction you are already moving.
 
-**Only Sprint Forward** - If checked, players will only be able to sprint if their velocity is moving forward
+**In Air Direction Control** - How much control do you have over movement while in the air? 0 is no control, 1 is full control just like on the ground.
 
+**Acceleration Turn Friction -** An experimental force that makes changing directions stop your forward momentum as if the character has to plant their feet to turn.
 
+***
 
 ### Crouching
 
 Specific modifiers for the crouching state
 
-<div align="left"><figure><img src="../../.gitbook/assets/image (82).png" alt="" width="375"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure></div>
 
-Auto Crouch -&#x20;
+**Auto Crouch -** Makes the character crouch if they walk into a small area.
 
-Prevent Falling While Crouched -
+**Prevent Falling While Crouched -** While crouching, prevent falling off ledges.
 
-Prevent Step Up While Crouched -
+**Prevent Step Up While Crouched -** While crouching, don't step up onto ledges.
 
-Crouch Speed Multiplier -
+**Crouch Speed Multiplier -** Crouching speed is determined by multiplying the speed against this number.
 
-Crouch Height Multiplier -
+**Crouch Height Multiplier -** Character height multiplier when crouching (e.g. 0.75 would be 75% of normal character height).
 
-
+***
 
 ### Jump
 
-<div align="left"><figure><img src="../../.gitbook/assets/image (83).png" alt="" width="375"><figcaption></figcaption></figure></div>
+Modifiers to how the character jumps
 
-Number Of Jumps -
+<div align="left"><figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure></div>
 
-Jump Speed -
+**Number Of Jumps -** How many jumps you can make before hitting the ground again.
 
-Jump Coyote Time -
+**Jump Speed -** Upward velocity applied to character when player jumps.
 
+**Jump Coyote Time -** The time after falling that the player can still jump.
 
+**Jump Up Block Cooldown -** Minimum interval (in seconds) between jumps, measured from the time the player became grounded.
+
+***
 
 ### Flying
 
-<div align="left"><figure><img src="../../.gitbook/assets/image (84).png" alt="" width="375"><figcaption></figcaption></figure></div>
+Modifiers to how the flying mode works
 
-Number of Jumps -&#x20;
+<div align="left"><figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure></div>
 
-Jump Speed -&#x20;
+**Allow Debug Flying -** Let console commands toggle flying (/fly from chat).
 
-Jump Coyote Time -&#x20;
+**Fly Speed Multiplier -** Flying speed is determined by multiplying the speed against this number.
 
+**Vertical Fly Speed -** How fast the character can move up and down while flying.
 
-
-### Gravity
-
-<div align="left"><figure><img src="../../.gitbook/assets/image (85).png" alt="" width="375"><figcaption></figcaption></figure></div>
-
-Use Gravity -&#x20;
-
-Use Gravity While Grounded -&#x20;
-
-Gravity Multiplier -&#x20;
-
-Upwards Gravity Multiplier -&#x20;
+***
 
 ### Gravity
 
-How gravity effects this character
+How gravity affects this character
 
-<div align="left"><figure><img src="../../.gitbook/assets/image (86).png" alt="" width="375"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure></div>
 
-Use Gravity -&#x20;
+**Use Gravity -** Apply Physics.gravity force every tick.
 
-Use Gravity While Grounded -&#x20;
+**Use Gravity While Grounded -** Apply gravity even when on the ground for accurate physics.
 
-Gravity Multiplier -&#x20;
+**Always Snap to Ground -** When grounded force the Y position of the character to the found ground plane.
 
-Upwards Gravity Multiplier -&#x20;
+**Gravity Multiplier -** Multiplier of global gravity force.
 
+**Upwards Gravity Multiplier -** Use this to adjust gravity while moving in the +Y. So you can have floaty jumps upwards but still have hard drops downward.
 
+***
 
 ### Physics
 
-<div align="left"><figure><img src="../../.gitbook/assets/image (87).png" alt="" width="375"><figcaption></figcaption></figure></div>
+How world physics affect this character
 
-Prevent Wall Clipping -&#x20;
+<div align="left"><figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure></div>
 
-Ground Collision Layer Mask -&#x20;
+**Ground Collision Layer Mask -** What layers will count as walkable ground.
 
-Terminal Velocity -&#x20;
+**Terminal Velocity -** Maximum fall speed, measured in meters per second.
 
-Minimum Velocity -&#x20;
+**Minimum Velocity -** Velocity will be set to zero when below this threshold on the ground.
 
-Use minimum Velocity In Air -&#x20;
+**Use Minimum Velocity in Air -** Also stop momentum when in the air.
 
-Drag -&#x20;
+**Prevent Wall Clipping -** Push the character away from walls to prevent rigidbody friction and unwanted collision overlaps.
 
-Air Drag Multiplier -&#x20;
+**Drag -** Drag coefficient.
 
-Air Speed Multiplier -&#x20;
+**Air Drag Multiplier -** How much to multiply drag resistance while you are in the air.
 
+**Air Speed Multiplier -** How much to multiply speed while you are in the air.
 
+**Additional No Input Drag -** How much to decelerate when no input is given in the air at a per second rate.
+
+**Air Input Acceleration -** How fast your player will accelerate in the air from player input at a per second rate.
+
+***
 
 ### Step Ups
 
-<div align="left"><figure><img src="../../.gitbook/assets/image (88).png" alt="" width="375"><figcaption></figcaption></figure></div>
+Configuration for stepping onto ledges
 
-Detect Step Ups
+<div align="left"><figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure></div>
 
-Always Step Up
+**Detect Step Ups -** Push the character up when they stop over a set threshold.
 
-Assisted Ledge Jump
+**Always Step Up -** Step the character up every frame if it there's nothing to push up to.
 
-Max Step Up Height
+**Assisted Ledge Jump -** While in the air, if you are near an edge it will push you up to the edge. Requires detectStepUps to be on.
 
-Step Up Ramp Distance&#x20;
+**Max Step Up Height -** How high in units can you auto step up.
 
+**Step Up Ramp Distance -** How far away to check for a step up.
 
+***
 
-Slopes
+### Slopes
 
-<div align="left"><figure><img src="../../.gitbook/assets/image (89).png" alt="" width="375"><figcaption></figcaption></figure></div>
+Configuration for walking along sloped surfaces
 
-Detect Slopes -&#x20;
+<div align="left"><figure><img src="../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure></div>
 
-Slope Force -&#x20;
+**Detect Slopes -** Auto detect slopes to create a downward drag. Disable as an optimization to skip raycast checks.
 
-Min Slope Delta -&#x20;
+**Slope Force -** The maximum force that pushes against the character when on a slope.
 
-Max Slope Delta -&#x20;
+**Min Slope Delta -** Slopes below this threshold will be ignored. 0 is flat ground, 1 is a vertical wall.
+
+**Max Slope Delta -** Slopes above this threshold will be treated as walls.

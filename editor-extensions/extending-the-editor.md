@@ -1,20 +1,3 @@
----
-layout:
-  width: default
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
-  metadata:
-    visible: true
----
-
 # Extending the editor
 
 Since Airship uses Unity, most of the custom editor features will work as-is. Some examples of features you might may want to add to your project:

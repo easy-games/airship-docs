@@ -11,7 +11,7 @@ To create an accessory that will display in the avatar editor you must create th
 {% hint style="info" %}
 To see an example item in Unity search "Crown" in Unity
 
-![](<../.gitbook/assets/image (123).png>)
+![](<../../.gitbook/assets/image (123).png>)
 {% endhint %}
 
 Every accessory item has at least 3 objects
@@ -20,13 +20,13 @@ Every accessory item has at least 3 objects
 * **Platform Gear** - A single item in the avatar editor that points to a list of AccessoryComponents
 * **Accessory Component** - The graphics for a single slot on the avatar
 
-<figure><img src="../.gitbook/assets/AccessoryPlatformGear (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/AccessoryPlatformGear (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Publishing
 
 When you are ready to publish your items, select your manifest and click Upload in the Inspector.
 
-<figure><img src="../.gitbook/assets/image (121).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (121).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="warning" %}
 You must be logged in with your easy.gg email to publish accessory items!

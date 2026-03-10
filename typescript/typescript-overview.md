@@ -28,3 +28,6 @@ In the folder you can create a new script by right clicking and selecting:\
 
 Useful Airship services can be found under the `Game` `Airship` and `Platform` globals.
 
+## Important Considerations
+
+Airship uses the [Luau Runtime](https://github.com/luau-lang/luau) to run scripts from the cloud. This means all TypeScript files are compiled to Luau instead of JavaScript and there are a few gotcha's when expecting a JavaScript function or library to exist. [Check this page for more information.](https://docs.airship.gg/other/javascript-greater-than-luau)
